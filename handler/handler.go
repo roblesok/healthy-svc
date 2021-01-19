@@ -1,9 +1,15 @@
 package handler
 
-import "net/http"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 func Health(w http.ResponseWriter, _ *http.Request) {
-	w.Write([]byte("Hello!\b"))
+	w.Header().Add("Content-Type", "application/json")
+	enc := json.NewEncoder(w)
+	enc.Encode(map[string]interface{}{"status": "healthy"})
+
 }
 
 func Fail(_ http.ResponseWriter, _ *http.Request) {
