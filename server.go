@@ -12,9 +12,11 @@ import (
 func main() {
 	port := ":8080"
 
-	commonHandlers := alice.New(middleware.Logger)
+	commonHandlers := alice.New(middleware.Logger, middleware.Recovery)
 
 	http.Handle("/health", commonHandlers.ThenFunc(handler.Health))
+
+	http.Handle("/fail", commonHandlers.ThenFunc(handler.Fail))
 
 	log.Fatal(http.ListenAndServe(port, nil))
 }
