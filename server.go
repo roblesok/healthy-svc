@@ -18,5 +18,7 @@ func main() {
 
 	http.Handle("/fail", commonHandlers.ThenFunc(handler.Fail))
 
+	log.Printf("Server listening at %s", port)
+
 	log.Fatal(http.ListenAndServe(port, nil))
 }
