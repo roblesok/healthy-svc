@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/roblesok/healthy/handler"
+	"github.com/roblesok/healthy-svc/handler"
 )
 
 func main() {

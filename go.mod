@@ -1,3 +1,3 @@
-module github.com/roblesok/healthy
+module github.com/roblesok/healthy-svc
 
 go 1.15
